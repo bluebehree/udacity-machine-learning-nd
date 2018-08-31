@@ -1,7 +1,7 @@
 # Machine Learning Engineer Nanodegree
 ## Capstone Proposal
 ## What's Cooking?
-Albert Pan
+Albert Pan  
 September 3, 2018
 
 ## Proposal
@@ -13,19 +13,29 @@ Food plays a major part in any culture around the world. In fact, the geographic
 For this project, we can use machine learning techniques to attain useful predictions with our data. This project will give me an opportunity to work with real-world datasets and to learn about the relation between ingredients and cuisines. This kind of research can be expanded to other fields of study involving text classification.
 
 ### Problem Statement
-_(approx. 1 paragraph)_
 
-In this section, clearly describe the problem that is to be solved. The problem described should be well defined and should have at least one relevant potential solution. Additionally, describe the problem thoroughly such that it is clear that the problem is quantifiable (the problem can be expressed in mathematical or logical terms) , measurable (the problem can be measured by some metric and clearly observed), and replicable (the problem can be reproduced and occurs more than once).
+Using the data provided by [Yummly](https://www.kaggle.com/c/whats-cooking-kernels-only/data), the challenge is to predict the cuisine of the dish from its list of ingredients. We can use a machine learning model that utilizes this data to predict the appropriate cuisine.
+
+My strategy for solving this problem is as follows:
+1. Download data from Kaggle
+2. Explore data with visualizations
+3. Preprocess data and extract features
+4. Train and test model
+5. Tune hyperparameters
+
 
 ### Datasets and Inputs
-_(approx. 2-3 paragraphs)_
 
-In this section, the dataset(s) and/or input(s) being considered for the project should be thoroughly described, such as how they relate to the problem and why they should be used. Information such as how the dataset or input is (was) obtained, and the characteristics of the dataset or input, should be included with relevant references and citations as necessary It should be clear how the dataset(s) or input(s) will be used in the project and whether their use is appropriate given the context of the problem.
+The dataset is composed of two JSON files. This [dataset](https://www.kaggle.com/c/whats-cooking-kernels-only/data) is made available from a Kaggle competition provided by Yummly.
+
+The most important file is the `train.json` file, which has 39774 rows of data and contains three fields, `id`, `cuisine`, and `ingredients`. The `ingredients` field consists the list of ingredients for each dish, while our target variable `cuisine` denotes the cuisine. The `id` field is a unique integer identifier for that particular dish. The `test.json` file has all the fields mentioned in the `train.json` file with the exception of our target variable, `cuisine`, and it has 9944 rows of data. In particular, I will be using the `ingredients` field as my features that I will pass into my model to train and predict the cuisine of the dish represented by the list of ingredients. Once I obtain the predictions of the data points in `test.json`, I will couple the `id` of the dish alongside with its respective prediction and submit it for the Kaggle (What's Cooking)[https://www.kaggle.com/c/whats-cooking-kernels-only] competition.
 
 ### Solution Statement
 _(approx. 1 paragraph)_
 
-In this section, clearly describe a solution to the problem. The solution should be applicable to the project domain and appropriate for the dataset(s) or input(s) given. Additionally, describe the solution thoroughly such that it is clear that the solution is quantifiable (the solution can be expressed in mathematical or logical terms) , measurable (the solution can be measured by some metric and clearly observed), and replicable (the solution can be reproduced and occurs more than once).
+Dishes of the same cuisine will likely share a common set of ingredients. I will be taking a look at the most frequent ingredients used for each cuisine, and use the individual ingredients as input features for the model I will be training.
+
+I will begin by using a variety of classification models that we have learned throughout the course, such as SVMs, Decision Trees, Random Forest, etc., as well as the XGBoost model and possibly deep learning models. I will additionally explore the viability of clustering algorithms and see if dishes of the same cuisine cluster together.
 
 ### Benchmark Model
 _(approximately 1-2 paragraphs)_
