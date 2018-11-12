@@ -2,3 +2,7 @@
 .ipynb_checkpoints
 
 capstone/data-set/
+capstone/capstone-report*
+
+# Exclude capstone-report.pdf
+!capstone/capstone-report.pdf
